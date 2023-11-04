@@ -1,0 +1,67 @@
+:host {
+    .mat-icon {
+      vertical-align: middle;
+      margin-right: 1rem;
+    }
+  }
+  
+  .mat-nav-list {
+    background: white !important;
+  }
+  .logo {
+    text-align: left;
+    padding: 2.3rem 1rem;
+    border-color: white;
+    img {
+      width: 200px;
+    }
+  }
+  .mat-divider {
+    border-color: white;
+    max-height: 100px;
+  }
+  
+  .mat-expansion-panel-header {
+    padding: 7%;
+    color: #000000 !important;
+    font-size: 1rem;
+    max-height: 15px;
+    margin: 50 8px;
+  }
+  
+  .mat-list-item {
+    color: #000000 !important;
+    font-size: 1rem;
+    height: 30px !important;
+    margin-bottom: 4px;
+    &:hover {
+      color: white !important;
+    }
+    ::ng-deep {
+      .mat-list-item-content {
+        border-radius: 5px;
+        margin: 50 8px;
+        &:hover {
+          background: rgb(247, 246, 248) !important;
+        }
+      }
+    }
+  }
+  .list-item-active {
+    color: white !important;
+    ::ng-deep {
+      .mat-list-item-content {
+        background: rgb(247, 246, 248) !important;
+        &:hover {
+          background: rgb(246, 244, 247) !important;
+        }
+      }
+    }
+  }
+  .mat-subheader {
+    color: #818cf8;
+    font-size: 0.8rem;
+    font-weight: 100;
+    letter-spacing: 1px;
+  }
+  

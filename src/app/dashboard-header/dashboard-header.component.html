@@ -1,0 +1,41 @@
+<mat-toolbar>
+  <mat-toolbar-row class="justify-content-between">
+    <button mat-icon-button (click)="toggleSidebar()">
+      <mat-icon>menu</mat-icon></button
+    >&nbsp;&nbsp;&nbsp; <mat-icon>search </mat-icon>&nbsp;<span>Search</span>
+    <div class="row mr-2 ml-auto">
+      <ul class="row m-0 align-items-center">
+        <mat-icon>add_alert</mat-icon>&nbsp;&nbsp; 
+        <mat-icon>message </mat-icon
+        >&nbsp;&nbsp; 
+        <img
+          src="./assets/user1.jpg"
+          alt=""
+          class="align-items-center user-image mr-2 p-1"
+        />
+
+        <li>
+          <button
+            mat-button
+            [matMenuTriggerFor]="menu"
+            class="user mt-2 d-flex align-items-center"
+          >
+            <span
+              class="align-items-center mobile-hide capitalize text-weight-regular"
+              >IfelseCloud</span
+            >
+            <mat-icon class="user-image-icon ml-1"
+              >keyboard_arrow_down</mat-icon
+            >
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="fnlogout()">
+              <mat-icon>exit_to_app</mat-icon>
+              Logout
+            </button>
+          </mat-menu>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

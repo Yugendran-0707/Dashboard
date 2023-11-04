@@ -1,0 +1,184 @@
+<div class="model">
+  <div class="row" style="max-height: 1980px; background-color: white">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <mat-card
+      class="example-card-two grid mat-space-bottom"
+      *ngFor="let data of this.tabledata.top_cards"
+    
+    >
+      <!-- <button style="max-width: 40px; max-height: 50px;">
+     
+      </button> -->
+    
+
+
+      <div class="row">
+          <div class="inner">
+            <h3>{{ data.value }}<span>%</span></h3>
+    
+            <p>{{ data.header }}</p>
+            <small>{{ data.sub_header }}</small>
+          </div>
+          <!-- <div class="icon">
+            <mat-icon>account_balance</mat-icon>
+          </div> -->
+      
+       
+      </div>
+     
+      <!-- <mat-card-header>
+        <mat-icon>account_balance</mat-icon>
+        <mat-card-title>{{ data.value }}<span>%</span></mat-card-title>
+        <mat-card-title>{{ data.header }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <small>{{ data.sub_header }}</small>
+      </mat-card-content> -->
+    </mat-card>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <!-- <div
+      class="card-group"
+      fxLayout="row"
+      fxLayoutAlign="start start"
+      fxLayoutGap="15px"
+    >
+      <div
+        style="max-width: 1150px; max-height: 300px; background-color: white"
+        *ngFor="let data of this.tabledata.top_cards"
+      >
+        <div class="card">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="card-body">
+            <h5 class="card-title">{{ data.value }}<span>%</span></h5>
+            <h5 class="card-title">{{ data.header }}</h5>
+            <p class="card-subtitle">{{ data.sub_header }}</p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- {{this.tabledata.top_cards[0].header}} -->
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="col-8" style="padding-left: 50px" aria-hidden="true">
+      <h3>Recent Order</h3>
+      <table class="table table-sm">
+        <thead>
+          <tr
+            class="btn-info text-white text-center"
+            style="
+              border-radius: 100px;
+              border: 2px solid #050505;
+              width: 100px;
+            "
+          >
+            <th style="border: 2.5px solid black">ID</th>
+            <th style="border: 2.5px solid black">Name</th>
+            <th style="border: 2.5px solid black">Product</th>
+            <th style="border: 2.5px solid black">Delivery Date</th>
+            <th style="border: 2.5px solid black">Status</th>
+            <th style="border: 2.5px solid black">Tracking No</th>
+            <th style="border: 2.5px solid black">Shipping</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let row of dataObs$ | async"
+            class="align text-center border-right: 1px solid currentColor;"
+            style="width: 32px; border: 2.5px solid black"
+          >
+            <td style="border: 2.5px solid black">{{ row.id }}</td>
+            <td style="border: 2.5px solid black">{{ row.name }}</td>
+            <td style="border: 2.5px solid black">{{ row.product }}</td>
+            <td style="border: 2.5px solid black">{{ row.delivery_date }}</td>
+            <td style="border: 2.5px solid black">
+              <div *ngIf="row.status == 'Paid'">
+                <!-- <span style="color: green">Paid</span> -->
+                <button
+                  mat-flat-button
+                  style="background-color: #3cb846; color: white"
+                >
+                  Paid
+                </button>
+              </div>
+              <div *ngIf="row.status == 'Failed'">
+                <!-- <span style="color: red">Failed</span> -->
+                <button
+                  mat-raised-button
+                  style="background-color: red; color: white"
+                >
+                  Failed
+                </button>
+              </div>
+              <div *ngIf="row.status == 'Pending'">
+                <!-- <span style="color: rgb(235, 231, 44)">Pending</span> -->
+                <button
+                  mat-raised-button
+                  style="background-color: rgb(93, 93, 241); color: white"
+                >
+                  Pending
+                </button>
+              </div>
+            </td>
+            <td style="border: 2.5px solid black">{{ row.tracking_no }}</td>
+            <td style="border: 2.5px solid black">
+              <div *ngIf="row.shipping == true">
+                <span style="color: green">True</span>
+              </div>
+              <div *ngIf="row.shipping == false">
+                <span style="color: red">False</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 15, 20, 25]"
+        [pageSize]="5"
+      ></mat-paginator>
+    </div>
+    <div class="example-containers">
+      <br />
+      <h3>New User Registration</h3>
+      <table class="tableData">
+        <thead></thead>
+
+        <tbody>
+          <tr *ngFor="let row of this.tabledata.new_users">
+            <td class="t-line">
+              <img src="./assets/user1.jpg" alt="" height="50" width="50px" />
+            </td>
+            <td class="t-line">
+              {{ row.name }} <br /><small>{{ row.country }}</small>
+            </td>
+            <td class="t-line">
+              <mat-progress-bar
+                mode="determinate"
+                value="row.progress"
+              ></mat-progress-bar
+              >{{ row.progress }}<span>%</span>
+            </td>
+            <td class="t-line">
+              <button (click)="more()" class="btn btn-primary pl-3">
+                more
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div id="divChart">
+        <h3>Sales Statistics</h3>
+        <canvas id="myChart3" width="700" height="425"></canvas>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="chart-container">
+        <canvas id="MyChart" width="650" height="350">{{ chart }}</canvas>
+      </div>
+      <canvas id="myChart2" width="650" height="350"></canvas>
+    </div>
+  </div>
+</div>

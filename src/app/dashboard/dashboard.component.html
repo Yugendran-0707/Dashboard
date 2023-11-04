@@ -1,0 +1,9 @@
+<mat-drawer-container>
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+       <cf-dashboard-menu></cf-dashboard-menu>
+    </mat-drawer>
+    <mat-drawer-content>
+        <cf-dashboard-header (toggleSidebarForMe)="sideBarToggler()"></cf-dashboard-header>
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>
